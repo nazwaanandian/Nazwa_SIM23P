@@ -1,27 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class home_berita extends CI_Controller {
+class home_pasien extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('HomeBerita_model');
+        $this->load->model('HomePasien_model');
     }
 
     public function index()
     {
-        $data['berita'] = $this->HomeBerita_model->get_all();
+        $data['pasien'] = $this->HomePasien_model->get_all();
         $this->load->view('layouts/header'); // bagian header AdminLTE
         $this->load->view('home/index', $data); // konten berita
         $this->load->view('layouts/footer'); // bagian footer AdminLTE
     }
     public function detail($id)
 {
-    $this->load->model('HomeBerita_model');
-    $data['berita'] = $this->HomeBerita_model->get_by_id($id);
+    $this->load->model('HomePasien_model');
+    $data['pasien'] = $this->HomePasien_model->get_by_id($id);
 
-    if (!$data['berita']) {
+    if (!$data['pasien']) {
         show_404(); //Jika ID tidak ditemukan
     }
     $this->load->view('layouts/header');

@@ -65,24 +65,34 @@
               <ul class="nav nav-treeview">
                 <?php if ($level =='admin' || $level == 'user') : ?>
                   <li class="nav-item">
-                <a href="<?= base_url('berita');?>" class="nav-link">
+                <a href="<?= base_url('pasien');?>" class="nav-link">
                   <i class="far fa-newspaper nav-icon"></i>
-                  <p>Berita</p>
+                  <p>Pasien</p>
                 </a>
               </li>
               <?php endif; ?>
              
               <?php if ($level == 'admin'): ?>
               <li class="nav-item">
-                <a href="<?= base_url('kategori'); ?>" class="nav-link">
+                <a href="<?= base_url('dokter'); ?>" class="nav-link">
                   <i class="far fa-folder nav-icon"></i>
-                  <p>Kategori</p>
+                  <p>Dokter</p>
                 </a>
               </li>
               <?php endif; ?>
+
                <?php if ($level == 'admin'): ?>
               <li class="nav-item">
-                <a href="<?= base_url('berita/laporan'); ?>" class="nav-link">
+                <a href="<?= base_url('status'); ?>" class="nav-link">
+                  <i class="far fa-folder nav-icon"></i>
+                  <p>status</p>
+                </a>
+              </li>
+              <?php endif; ?>
+
+               <?php if ($level == 'admin'): ?>
+              <li class="nav-item">
+                <a href="<?= base_url('pasien/laporan'); ?>" class="nav-link">
                   <i class="far fa-newspaper nav-icon"></i>
                   <p>Laporan</p>
                 </a>
