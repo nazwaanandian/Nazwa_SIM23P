@@ -20,10 +20,6 @@ class Pasien_model extends CI_Model{
     }
     
 
-public function update_status($id, $status) {
-    $this->db->where('id', $id);
-    return $this->db->update('pasien', ['status' => $status]);
-}
 
 
 

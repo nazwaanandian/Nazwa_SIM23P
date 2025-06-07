@@ -10,6 +10,7 @@ class pasien extends MY_Controller{
     public function index(){
 
         $data['pasien']=$this->Pasien_model->get_all_pasien();
+       
         $this->load->view('templates/header');
         $this->load->view('pasien/index',$data);
         $this->load->view('templates/footer');
@@ -18,6 +19,7 @@ class pasien extends MY_Controller{
         $this->load->model('Dokter_model');
         $data['dokter_pasien'] = $this->Dokter_model->get_all();
         $data['pasien']=$this->Pasien_model->get_all_pasien();
+       
         $this->load->view('templates/header');
         $this->load->view('pasien/form_pasien',$data);
         $this->load->view('templates/footer');
@@ -58,6 +60,7 @@ class pasien extends MY_Controller{
     }
     public function edit($idpasien){
         $data['pasien']=$this->Pasien_model->get_pasien_by_id($idpasien);
+        
         $this->load->view('templates/header');
         $this->load->view('pasien/edit_pasien',$data);
         $this->load->view('templates/footer');
@@ -88,18 +91,7 @@ class pasien extends MY_Controller{
         redirect('pasien');
         }
     }
-    public function pendaftaran_status($id, $status)
-{
-    $validStatus = ['proses', 'disetujui', 'ditolak'];
-
-    if (in_array($status, $validStatus)) {
-        $this->load->model('Pasien_model');
-        $this->Pasien_model->update_status($id, $status);
-        $this->session->set_flashdata('success', "Status pasien berhasil diperbarui ke '$status'.");
-    }
-
-    redirect('admin/status'); // pastikan ini adalah route untuk halaman status
-}
+   
 
 
 

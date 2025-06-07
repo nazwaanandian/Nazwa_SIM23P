@@ -40,8 +40,9 @@
           <th>Alamat</th>
           <th>No Telepon</th>
           <th>Keluhan</th>
-          <th>Tanggal Kunjungan</th>
+          <th>Tanggal Kunjungan</th>\
           <th>Status</th>
+          
           
           </tr>
       </thead>
