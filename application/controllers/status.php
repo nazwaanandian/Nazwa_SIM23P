@@ -123,5 +123,4 @@ class pasien extends MY_Controller{
         $this->load->view('berita/laporan_hasil', $data);
         $this->load->view('templates/footer');
     }
-    
 }

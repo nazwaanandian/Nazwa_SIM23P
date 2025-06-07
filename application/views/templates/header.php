@@ -85,7 +85,7 @@
               <li class="nav-item">
                 <a href="<?= base_url('status'); ?>" class="nav-link">
                   <i class="far fa-folder nav-icon"></i>
-                  <p>status</p>
+                  <p>Status</p>
                 </a>
               </li>
               <?php endif; ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH')OR exit('No direct script access allowed');
 
-class Pasien_model extends CI_Model{
+class Status_model extends CI_Model{
     public function get_all_pasien(){
         return $this->db->get('pasien')->result_array();
     }
@@ -19,12 +19,10 @@ class Pasien_model extends CI_Model{
         return $this->db->update('pasien', $data);
     }
     
-
-public function update_status($id, $status) {
-    $this->db->where('id', $id);
-    return $this->db->update('pasien', ['status' => $status]);
+public function update_status($id, $status)
+{
+    return $this->db->where('idpasien', $id)->update('pasien', ['status' => $status]);
 }
-
 
 
     public function get_laporan_berita($dari, $sampai)

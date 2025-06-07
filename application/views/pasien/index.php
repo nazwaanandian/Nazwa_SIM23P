@@ -41,7 +41,8 @@
           <th>No Telepon</th>
           <th>Keluhan</th>
           <th>Tanggal Kunjungan</th>
-          <th>Aksi</th>
+          <th>Status</th>
+          
           </tr>
       </thead>
       <tbody>
@@ -54,10 +55,10 @@
         <td><?= $p['no_telp'];?></td>
         <td><?= $p['keluhan'];?></td>
         <td><?= $p['tgl_kunjungan'];?></td>
-        <td>
-          <a href="<?= base_url('pasien/edit/'. $p['idpasien']);?>" class="btn btn-sm btn-info">Edit</a>
-          <a href="<?= base_url('pasien/hapus/'. $p['idpasien']);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus berita ini?')">Hapus</a>
-        </td>
+        <td><?= $p['status']; ?></td>
+        
+        
+
      </tr>
      <?php endforeach; ?>
      </tbody>
