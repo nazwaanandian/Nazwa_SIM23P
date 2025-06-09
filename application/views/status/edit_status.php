@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          <h1>Daftar Dokter</h1>
+          <h1>Form Status</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -18,7 +18,7 @@
     <section class="content">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">List Dokter Spesialis</h3>
+          <h3 class="card-title">Update Status Pasien</h3>
           <div class="card-tools">
             <button type="button" class="btn-btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"> 
             <i class="fas fa-minus"></i>
@@ -29,40 +29,24 @@
 </div>
 </div>
 <div class="card-body">
-  <a href="<?= base_url('dokter/tambah'); ?>" class="btn btn-primary mb-3">Tambah Dokter Spesialis</a>
-  <?php if (!empty($dokter_pasien)): ?>
-    <table class="table table-bordered table-striped">
-      <thead>
-        <tr>
-         
-          <th>Dokter</th>
-          
-          <th>Aksi</th>
-          </tr>
-      </thead>
-      <tbody>
-     <?php foreach ($dokter_pasien as $d): ?>
-      <tr>
+    <form action="<?= base_url('status/update/'. $status_pasien['idpasien']);?>" method="POST">
+    <div class="box-body">
        
-        <td><?= $d['dokter'];?></td>
-        
-        <td>
-          <a href="<?= base_url('dokter/edit/'. $d['iddokter']);?>" class="btn btn-sm btn-info">Edit</a>
-          <a href="<?= base_url('dokter/hapus/'. $d['iddokter']);?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a>
-        </td>
-     </tr>
-     <?php endforeach; ?>
-     </tbody>
-     </table>
-     <?php else: ?>
-      <p> Tidak ada Data yang tersedia</p>
-      <?php endif; ?>
-     </div>
-     <div class="card-footer">
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" name="status" value="<?= $status_pasien['status'];?>" id="status" placeholder="Status" required>
+        </div>
+       
+    </div>
+<div class="box-footer">
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="<?= base_url('status_pasien');?>" class="btn btn_secondary">Batal</a>
+</div>
+</form>
+</div>
+<div class="card-footer">
 
           </div>
      </div>
      </section>
      </div>
-
-

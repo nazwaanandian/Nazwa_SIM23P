@@ -40,7 +40,7 @@
           <th>Alamat</th>
           <th>No Telepon</th>
           <th>Keluhan</th>
-          <th>Tanggal Kunjungan</th>\
+          <th>Tanggal Kunjungan</th>
           <th>Status</th>
           
           
@@ -58,7 +58,14 @@
         <td><?= $p['tgl_kunjungan'];?></td>
         <td><?= $p['status']; ?></td>
         
-        
+<td>
+    <a href="<?= base_url('pasien/edit/'. $p['idpasien']); ?>" class="btn btn-sm btn-info">Edit</a>
+    <?php if ($this->session->userdata('role') == 'admin'): ?>
+        <a href="<?= base_url('pasien/edit_status/'. $p['idpasien']); ?>" class="btn btn-sm btn-warning">Edit Status</a>
+    <?php endif; ?>
+    <a href="<?= base_url('pasien/hapus/'. $p['idpasien']); ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Hapus</a>
+</td>
+
 
      </tr>
      <?php endforeach; ?>

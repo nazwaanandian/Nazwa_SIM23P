@@ -71,13 +71,7 @@
             <label for="tgl_kunjungan">Tanggal Kunjungan</label>
             <input type="text" class="form-control" name="tgl_kunjungan" value="<?= $pasien['tgl_kunjungan'];?>" id="tgl_kunjungan" placeholder="Tanggal Kunjungan" required>
         </div>
-        <select name="status" class="form-control" required>
-    <?php foreach ($status_pasien as $s): ?>
-        <option value="<?= $s->idstatus ?>" <?= ($s->idstatus == $pasien->idstatus) ? 'selected' : '' ?>>
-            <?= $s->status ?>
-        </option>
-    <?php endforeach; ?>
-</select>
+       
 
     </div>
 <div class="box-footer">
