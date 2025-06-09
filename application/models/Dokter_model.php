@@ -2,11 +2,12 @@
 defined('BASEPATH')OR exit('No direct script access allowed');
 
 class Dokter_model extends CI_Model{
+
     public function get_all_dokter(){
         return $this->db->get('dokter_pasien')->result_array();
     }
     public function get_all(){
-        return $this->db->get('dokter_pasien')->result();
+        return $this->db->select('iddokter, dokter')->get('dokter_pasien')->result();
     }
     public function insert_dokter($data){
         return $this->db->insert('dokter_pasien',$data);

@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Daftar Berita</h1>
+                    <h1>Daftar Pasien</h1>
 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -20,7 +20,7 @@
     <!-- Default Box-->
      <div class="card">
         <div class="card-header">
-            <h3 class="card-title">List Berita</h3>
+            <h3 class="card-title">List Pasien</h3>
 
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toogle="tooltip" title="Collapse">
@@ -30,20 +30,18 @@
 </div>
 </div>
     <div class="box-body">
-        <h3>Laporan Berita</h3>
-        <form method="post" action="<?= base_url('berita/cetak_laporan') ?>">
-        <div class="box-body">
-            <div class="form-group">
-                <label>Dari tanggal:</label>
-                <input type="date" name="tanggal_dari" required>
+        <h3>Laporan Pasien</h3>
+        <form action="<?= base_url('pasien/cetak_laporan') ?>" method="post">
+    <div class="form-group">
+        <label>Dari Tanggal:</label>
+        <input type="date" name="tanggal_dari" required>
 
-                <label>Sampai Tanggal:</label>
-                <input type="date" name="tanggal_sampai" required>
-</div>
-        <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Tampilkan Laporan</button>
-</div>
+        <label>Sampai Tanggal:</label>
+        <input type="date" name="tanggal_sampai" required>
+    </div>
+    <button type="submit">Cetak Laporan</button>
 </form>
+
 
 </div>
         <!-- /.card-body -->

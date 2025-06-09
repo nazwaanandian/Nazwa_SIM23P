@@ -7,9 +7,10 @@ class Pasien extends CI_Controller {
         parent::__construct();
         $this->load->model('Pasien_model');
         $this->load->model('Status_model');
+        $this->load->model('Dokter_model');
     }
 
-    public function index() {
+   public function index() {
     $id_user = $this->session->userdata('id_user');
     $data['pasien'] = $this->Pasien_model->get_all_pasien_by_user($id_user);
     $this->load->view('templates/header');
@@ -43,11 +44,14 @@ class Pasien extends CI_Controller {
     }
 
     public function edit($idpasien) {
-        $data['pasien'] = $this->Pasien_model->get_pasien_by_id($idpasien);
-        $this->load->view('templates/header');
-        $this->load->view('pasien/edit_pasien', $data);
-        $this->load->view('templates/footer');
-    }
+    $data['dokter_pasien'] = $this->Dokter_model->get_all();
+    $data['pasien'] = $this->Pasien_model->get_pasien_by_id($idpasien);
+
+    $this->load->view('templates/header');
+    $this->load->view('pasien/edit_pasien', $data);
+    $this->load->view('templates/footer');
+}
+
 
     public function update($id) {
         $this->form_validation->set_rules('nm_pasien', 'Nama Pasien', 'required');
@@ -114,20 +118,22 @@ class Pasien extends CI_Controller {
 
     public function laporan() {
         $this->load->view('templates/header');
-        $this->load->view('berita/laporan_form');
+        $this->load->view('pasien/laporan_form');
         $this->load->view('templates/footer');
     }
 
     public function cetak_laporan() {
-        $tanggal_dari = $this->input->post('tanggal_dari');
-        $tanggal_sampai = $this->input->post('tanggal_sampai');
+    $tanggal_dari = $this->input->post('tanggal_dari');
+    $tanggal_sampai = $this->input->post('tanggal_sampai');
 
-        $data['berita'] = $this->Berita_model->get_laporan_berita($tanggal_dari, $tanggal_sampai);
-        $data['tanggal_dari'] = $tanggal_dari;
-        $data['tanggal_sampai'] = $tanggal_sampai;
+    $data['tanggal_dari'] = $tanggal_dari;
+    $data['tanggal_sampai'] = $tanggal_sampai;
+    $data['pasien'] = $this->Pasien_model->get_laporan_pasien($tanggal_dari, $tanggal_sampai);
 
-        $this->load->view('templates/header');
-        $this->load->view('berita/laporan_hasil', $data);
-        $this->load->view('templates/footer');
-    }
+    $this->load->view('templates/header');
+    $this->load->view('pasien/laporan_hasil', $data);
+    $this->load->view('templates/footer');
+}
+
+
 }

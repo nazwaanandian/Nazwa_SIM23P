@@ -33,5 +33,12 @@ class Pasien_model extends CI_Model {
     public function get_all_pasien_by_user($id_user) {
     return $this->db->get_where('pasien', ['id_user' => $id_user])->result_array();
 }
+public function get_laporan_pasien($dari, $sampai)
+{
+    $this->db->where('tgl_kunjungan >=', $dari);
+    $this->db->where('tgl_kunjungan <=', $sampai);
+    return $this->db->get('pasien')->result();
+}
+
 
 }

@@ -42,9 +42,7 @@
         <option value="">-- Pilih Dokter --</option>
         <?php if (!empty($dokter_pasien)): ?>
             <?php foreach ($dokter_pasien as $d): ?>
-                <option value="<?= $d->dokter; ?>" <?= ($d->dokter == $data->dokter) ? 'selected' : ''; ?>>
-                    <?= $d->dokter; ?>
-                </option>
+                <option value="<?= $d->iddokter; ?>"><?= $d->dokter; ?></option>
             <?php endforeach; ?>
         <?php endif; ?>
     </select>
