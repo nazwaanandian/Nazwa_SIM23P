@@ -69,3 +69,9 @@ Acknowledgement
 
 The CodeIgniter team would like to thank EllisLab, all the
 contributors to the CodeIgniter project and you, the CodeIgniter user.
+
+Username Admin : admin
+Password Admin : 123456
+
+Username User : user
+Password User : 123456
