@@ -34,49 +34,52 @@
   <?php if (!empty($pasien)): ?>
     <table id="datatable" class="table table-bordered table-striped">
       <thead>
-        <tr>
-          <th>Nama Pasien</th>
-          <th>Dokter</th>
-          <th>Tanggal Lahir</th>
-          <th>Alamat</th>
-          <th>No Telepon</th>
-          <th>Keluhan</th>
-          <th>Tanggal Kunjungan</th>
-          <th>Status</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($pasien as $p): ?>
-          <tr>
-            <td><?= $p['nm_pasien']; ?></td>
-            <td><?= $p['dokter']; ?></td>
-            <td><?= $p['tgl_lahir']; ?></td>
-            <td><?= $p['alamat']; ?></td>
-            <td><?= $p['no_telp']; ?></td>
-            <td><?= $p['keluhan']; ?></td>
-            <td><?= $p['tgl_kunjungan']; ?></td>
-            <td><?= $p['status']; ?></td>
-            <td>
-              <div class="btn-group btn-group-sm" role="group" aria-label="Aksi">
-                <a href="<?= base_url('pasien/edit/' . $p['idpasien']); ?>" class="btn btn-info" title="Edit">
-                  <i class="fas fa-edit"></i>
-                </a>
+  <tr>
+    <th>Nama Pasien</th>
+    <th>Dokter</th>
+    <th>Tanggal Lahir</th>
+    <th>Alamat</th>
+    <th>No Telepon</th>
+    <th>Keluhan</th>
+    <th>Tanggal Kunjungan</th>
+    <th>Status</th>
 
-                <?php if ($this->session->userdata('role') == 'admin'): ?>
-                  <a href="<?= base_url('pasien/edit_status/' . $p['idpasien']); ?>" class="btn btn-warning" title="Edit Status">
-                    <i class="fas fa-sync-alt"></i>
-                  </a>
-                <?php endif; ?>
+    <?php if ($this->session->userdata('role') == 'admin'): ?>
+      <th>Aksi</th>
+    <?php endif; ?>
+  </tr>
+</thead>
 
-                <a href="<?= base_url('pasien/hapus/' . $p['idpasien']); ?>" class="btn btn-danger" title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-                  <i class="fas fa-trash"></i>
-                </a>
-              </div>
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
+<tbody>
+  <?php foreach ($pasien as $p): ?>
+    <tr>
+      <td><?= $p['nm_pasien']; ?></td>
+      <td><?= $p['dokter']; ?></td>
+      <td><?= $p['tgl_lahir']; ?></td>
+      <td><?= $p['alamat']; ?></td>
+      <td><?= $p['no_telp']; ?></td>
+      <td><?= $p['keluhan']; ?></td>
+      <td><?= $p['tgl_kunjungan']; ?></td>
+      <td><?= $p['status']; ?></td>
+
+      <?php if ($this->session->userdata('role') == 'admin'): ?>
+        <td>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Aksi">
+            <a href="<?= base_url('pasien/edit/' . $p['idpasien']); ?>" class="btn btn-info" title="Edit">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="<?= base_url('pasien/edit_status/' . $p['idpasien']); ?>" class="btn btn-sm" style="background-color: orange; color: white;" title="Edit Status">
+              <i class="fas fa-tasks"></i>
+            </a>
+            <a href="<?= base_url('pasien/hapus/' . $p['idpasien']); ?>" class="btn btn-danger" title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </td>
+      <?php endif; ?>
+    </tr>
+  <?php endforeach; ?>
+</tbody>
     </table>
   <?php else: ?>
     <p class="text-muted">Belum ada data pasien.</p>
@@ -88,5 +91,3 @@
      </div>
      </section>
      </div>
-
-

@@ -34,7 +34,7 @@
     <!-- Brand Logo -->
     <!-- Sidebar brand/logo -->
 <a href="#" class="brand-link text-center">
-  <span class="brand-text font-weight-bold text-primary">Klinik</span>
+  <span class="brand-text font-weight-bold text-primary">Rumah Sakit Cinta Kasih</span>
 </a>
 
 <!-- Sidebar user panel (username di tengah, tanpa foto) -->
@@ -63,7 +63,7 @@
                 <?php if ($level =='admin' || $level == 'user') : ?>
                   <li class="nav-item">
                 <a href="<?= base_url('pasien');?>" class="nav-link">
-                  <i class="far fa-newspaper nav-icon"></i>
+                  <i class="fas fa-user-injured nav-icon"></i> 
                   <p>Pasien</p>
                 </a>
               </li>
@@ -72,7 +72,7 @@
               <?php if ($level == 'admin'): ?>
               <li class="nav-item">
                 <a href="<?= base_url('dokter'); ?>" class="nav-link">
-                  <i class="far fa-folder nav-icon"></i>
+                  <i class="fas fa-clinic-medical nav-icon"></i>
                   <p>Dokter</p>
                 </a>
               </li>
@@ -81,7 +81,7 @@
                <?php if ($level == 'admin'): ?>
               <li class="nav-item">
                 <a href="<?= base_url('status'); ?>" class="nav-link">
-                  <i class="far fa-folder nav-icon"></i>
+                  <i class="fas fa-clipboard-check nav-icon"></i>
                   <p>Status</p>
                 </a>
               </li>
